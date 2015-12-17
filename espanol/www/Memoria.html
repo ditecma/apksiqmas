@@ -1,0 +1,84 @@
+
+<!-- saved from url=(0055)http://si-dec-testing/iframe/ESP3-B5P3S03-i1/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <title>Memoria</title>
+        <link rel="stylesheet" href="./Memoria_files/EstiloT0305.css" type="text/css" media="screen">                                                                  
+        <script language="JavaScript" src="./Memoria_files/jquery.js"></script>
+        <script type="text/javascript" src="./Memoria_files/funciones.js"></script>
+        <script type="text/javascript">
+
+        function contadorTiempo(){
+            timer = $("#timer").html();
+            timer++;
+            $("#timer").html(timer);
+            if($(".correcto").length < $imagenes.length){
+                timerId = setTimeout(contadorTiempo, 1000);    
+            }
+        }
+        function intento1(event){
+            $(this).children().fadeIn();
+            $imagenes.unbind('click');
+            $imagenes.click({imagen1:$(this)},intento2);
+        }
+        function intento2(event){
+            contador ++;
+            $("#contador").html(contador);
+            $(this).children().fadeIn();
+            $imagenes.unbind('click');
+            if( event.data.imagen1.attr('id') != $(this).attr('id') && 
+                event.data.imagen1.attr('data-id') == $(this).attr('data-id')){
+                event.data.imagen1.addClass("correcto");
+                $(this).addClass("correcto");
+                $imagenes.click(intento1);
+            } else {
+                event.data.imagen1.children().fadeOut();
+                $(this).children().fadeOut();
+                $imagenes.click(intento1);
+            }
+        }
+        function comenzar(){
+            $("#contador")[0].innerHTML = 0;
+            $('#timer')[0].innerHTML = 0;
+            contador = 0;
+            $contenedor = $('#imagenes');
+            $imagenes = $('#imagenes div.img');
+            $imagenes = $imagenes.unbind('click').shuffle();
+            $imagenes.children().hide();
+            $imagenes.click(contadorTiempo);
+            $imagenes.click(intento1);
+
+        }
+        $(document).ready(function(){
+            comenzar();
+        });
+
+        </script>
+    </head>                                                                 
+        <body cz-shortcut-listen="true">
+            <div id="botonera">
+                <span id="msgContador" class="link">
+                    <span id="contador">2</span> Movimientos
+                </span>
+                &nbsp;
+                <a href="javascript:" class="link" onclick="comenzar();">Reiniciar</a>
+                &nbsp;
+                <span id="msgTimer" class="link">
+                <span id="timer">15</span> Segundos
+                </span>
+            </div>
+            <div id="imagenes">
+                <div id="11" class="img" data-id="3"><img src="./Memoria_files/05.png" alt="" style="display: none;"></div>
+                <div id="4" class="img" data-id="2"><img src="./Memoria_files/04.png" alt="" style="display: none;"></div>
+                <div id="14" class="img" data-id="4"><img src="./Memoria_files/08.png" alt="" style="display: none;"></div>
+                <div id="12" class="img" data-id="3"><img src="./Memoria_files/06.png" alt="" style="display: none;"></div>
+
+                <div id="1" class="img" data-id="1"><img src="./Memoria_files/01.png" alt="" style="display: none;"></div>
+                <div id="2" class="img" data-id="1"><img src="./Memoria_files/02.png" alt="" style="display: none;"></div>
+                <div id="13" class="img" data-id="4"><img src="./Memoria_files/07.png" alt="" style="display: none;"></div>
+                <div id="3" class="img" data-id="2"><img src="./Memoria_files/03.png" alt="" style="display: none;"></div>
+
+               
+
+            </div>
+                                                                         
+</body></html>
