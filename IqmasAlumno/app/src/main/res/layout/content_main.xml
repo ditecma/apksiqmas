@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="alumno.iqmas.com.iqmasalumno.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido Alumno"
+        android:textSize="30dp"
+        android:id="@+id/textView"
+        android:layout_marginTop="100dp"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/img01iqmas"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/btnWeb"
+        android:layout_alignEnd="@+id/btnWeb"
+        android:layout_gravity="center_horizontal" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        >
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView2"
+            android:src="@drawable/internet"
+            android:layout_gravity="center_vertical|right"/>
+
+        <Button
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:text="IQMAS PLATAFORMA (WEB)"
+            android:id="@+id/btnWeb"
+            android:layout_below="@+id/textView"
+            android:onClick="onClickWebButton"
+            android:layout_gravity="center_horizontal|center_vertical" />
+
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        >
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView3"
+            android:src="@drawable/access_point"
+            android:layout_gravity="center_horizontal|center_vertical|right" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/webIp"
+                android:hint="127.0.0.1"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                android:layout_below="@+id/btnWeb"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal|center_vertical"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="IQMAS LOCAL"
+                android:id="@+id/btnLocal"
+                android:layout_below="@+id/webIp"
+                android:onClick="onClickLocalButton"
+                android:layout_gravity="center_horizontal|center_vertical"/>
+
+        </LinearLayout>
+
+    </GridLayout>
+
+
+</LinearLayout>
